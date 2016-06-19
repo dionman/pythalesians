@@ -29,7 +29,6 @@ class StrategyFXCTA_Example(StrategyTemplate):
 
         return
 
-
     ###### Parameters and signal generations (need to be customised for every model)
     def fill_backtest_request(self):
 
@@ -71,7 +70,6 @@ class StrategyFXCTA_Example(StrategyTemplate):
 
         return br
 
-
     def fill_assets(self):
         ##### FILL IN WITH YOUR ASSET DATA
 
@@ -112,7 +110,6 @@ class StrategyFXCTA_Example(StrategyTemplate):
 
         return asset_df, spot_df, spot_df2, basket_dict
 
-
     def construct_signal(self, spot_df, spot_df2, tech_params, br):
 
         ##### FILL IN WITH YOUR OWN SIGNALS
@@ -123,7 +120,6 @@ class StrategyFXCTA_Example(StrategyTemplate):
         tech_ind.create_tech_ind(spot_df, 'SMA', tech_params); signal_df = tech_ind.get_signal()
 
         return signal_df
-
 
     def construct_strategy_benchmark(self):
 
@@ -152,16 +148,13 @@ if __name__ == '__main__':
 # just change "False" to "True" to run any of the below examples
 
     # create a FX CTA strategy then chart the returns, leverage over time
-    if False:
+    if True:
         strategy = StrategyFXCTA_Example()
 
-        strategy.fill_backtest_request()
-        strategy.fill_assets = strategy.fill_assets()
-        strategy.construct_signal = strategy.construct_signal()
-        strategy.construct_strategy_benchmark = strategy.construct_strategy_benchmark()
+        strategy.construct_strategy()
 
-        #strategy.construct_strategy()
     strategy.plot_strategy_pnl()  # plot the final strategy
+    strategy.plot_strategy_group_benchmark_pnl()        # plot all the cumulative P&Ls of each component
 
     # pf = PlotFactory()
     # pf.plot_line_graph(pandas.DataFrame(numpy.random.rand(100,10)))

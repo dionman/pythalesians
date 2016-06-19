@@ -230,6 +230,11 @@ if __name__ == '__main__':
 
 # In[ ]:
 
+strategy.tsfactory
+
+
+# In[ ]:
+
 strategy.plot_strategy_pnl()                        # plot the final strategy
 
 
